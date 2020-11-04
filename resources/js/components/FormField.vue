@@ -1,5 +1,5 @@
 <template>
-    <default-field :field="field">
+    <default-field :field="field" :errors="errors" :show-help-text="showHelpText">
         <template slot="field">
             <div class="py-2">
                 <toggle-button
@@ -13,10 +13,9 @@
                     :sync="true"
                     :color="colors"
                     :speed="speed"
+                    :disabled="isReadonly"
                 />
             </div>
-
-            <p v-if="hasError" class="my-2 text-danger" v-html="firstError" />
         </template>
     </default-field>
 </template>
